@@ -1,0 +1,19 @@
+﻿<Window x:Class="MESClient.AddProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MESClient"
+        mc:Ignorable="d"
+        Title="Добавление изделия в подразделение" Height="175" Width="340" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Height="30">Изделие</Label>
+        <ComboBox Grid.Row="1" Grid.Column="0" Name="ProductsComboBox" Height="30"></ComboBox>
+        <Button Grid.Row="2" Grid.Column="0" Height="30" VerticalAlignment="Bottom" Name="AddBtn" Click="AddBtn_Click">Добавить</Button>
+    </Grid>
+</Window>

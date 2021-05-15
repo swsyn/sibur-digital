@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MESService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MESServer" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MESModel" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:element name="GetData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="value" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDataUsingDataContract">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MESServer" minOccurs="0" name="composite" nillable="true" type="q1:CompositeType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDataUsingDataContractResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MESServer" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q2:CompositeType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDiff">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="a" type="xs:int" />
+            <xs:element minOccurs="0" name="b" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDiffResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetDiffResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDepartments">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDepartmentsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MESModel" minOccurs="0" name="GetDepartmentsResult" nillable="true" type="q3:ArrayOfDepartment" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDepartmentAvailability">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MESModel" minOccurs="0" name="department" nillable="true" type="q4:Department" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDepartmentAvailabilityResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MESModel" minOccurs="0" name="GetDepartmentAvailabilityResult" nillable="true" type="q5:ArrayOfProductAvailability" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProducts">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProductsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MESModel" minOccurs="0" name="GetProductsResult" nillable="true" type="q6:ArrayOfProduct" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTeams">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTeamsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MESModel" minOccurs="0" name="GetTeamsResult" nillable="true" type="q7:ArrayOfTeam" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddProduct">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="productId" type="xs:int" />
+            <xs:element minOccurs="0" name="departmentId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddProductResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AddProductResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteProduct">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="productAvailabilityId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteProductResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteProductResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteProducts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="productIds" nillable="true" type="q8:ArrayOfint" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteProductsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteProductsResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TakeProduct">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="productAvailabilityId" type="xs:int" />
+            <xs:element minOccurs="0" name="teamId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TakeProductResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TakeProductResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TakeProducts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="productIds" nillable="true" type="q9:ArrayOfint" />
+            <xs:element minOccurs="0" name="teamId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TakeProductsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TakeProductsResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInputMovements">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MESModel" minOccurs="0" name="department" nillable="true" type="q10:Department" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInputMovementsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MESModel" minOccurs="0" name="GetInputMovementsResult" nillable="true" type="q11:ArrayOfMovement" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetOutputMovements">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MESModel" minOccurs="0" name="department" nillable="true" type="q12:Department" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetOutputMovementsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MESModel" minOccurs="0" name="GetOutputMovementsResult" nillable="true" type="q13:ArrayOfMovement" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GiveProduct">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="productAvailabilityIds" nillable="true" type="q14:ArrayOfint" />
+            <xs:element minOccurs="0" name="teamId" type="xs:int" />
+            <xs:element minOccurs="0" name="newProductId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GiveProductResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GiveProductResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InitDb">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InitDbResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="InitDbResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MESServer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MESServer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="CompositeType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MESModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MESModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfDepartment">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDepartment" nillable="true" type="tns:ArrayOfDepartment" />
+      <xs:complexType name="Department">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Parent" nillable="true" type="tns:Department" />
+          <xs:element minOccurs="0" name="ProductAvailabilities" nillable="true" type="tns:ArrayOfProductAvailability" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Department" nillable="true" type="tns:Department" />
+      <xs:complexType name="ArrayOfProductAvailability">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductAvailability" nillable="true" type="tns:ProductAvailability" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfProductAvailability" nillable="true" type="tns:ArrayOfProductAvailability" />
+      <xs:complexType name="ProductAvailability">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Department" nillable="true" type="tns:Department" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ProductAvailability" nillable="true" type="tns:ProductAvailability" />
+      <xs:complexType name="Product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductAvailabilities" nillable="true" type="tns:ArrayOfProductAvailability" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Product" nillable="true" type="tns:Product" />
+      <xs:complexType name="ArrayOfProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
+      <xs:complexType name="ArrayOfTeam">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Team" nillable="true" type="tns:Team" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTeam" nillable="true" type="tns:ArrayOfTeam" />
+      <xs:complexType name="Team">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Department" nillable="true" type="tns:Department" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Leader" nillable="true" type="tns:Employee" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Team" nillable="true" type="tns:Team" />
+      <xs:complexType name="Employee">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmployeeCategory" nillable="true" type="tns:EmployeeCategory" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Employee" nillable="true" type="tns:Employee" />
+      <xs:complexType name="EmployeeCategory">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="EmployeeCategory" nillable="true" type="tns:EmployeeCategory" />
+      <xs:complexType name="ArrayOfMovement">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Movement" nillable="true" type="tns:Movement" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfMovement" nillable="true" type="tns:ArrayOfMovement" />
+      <xs:complexType name="Movement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Destination" nillable="true" type="tns:Department" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="MovementDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+          <xs:element minOccurs="0" name="Source" nillable="true" type="tns:Department" />
+          <xs:element minOccurs="0" name="Team" nillable="true" type="tns:Team" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Movement" nillable="true" type="tns:Movement" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfint">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IMESService_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetDiff_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiff" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetDiff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartments" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetDepartmentAvailability_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentAvailability" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetDepartmentAvailability_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducts" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetTeams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeams" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetTeams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_AddProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProduct" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_AddProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_DeleteProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_DeleteProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_DeleteProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProducts" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_DeleteProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_TakeProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:TakeProduct" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_TakeProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TakeProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_TakeProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:TakeProducts" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_TakeProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TakeProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetInputMovements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInputMovements" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetInputMovements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInputMovementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetOutputMovements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutputMovements" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GetOutputMovements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutputMovementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GiveProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiveProduct" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_GiveProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiveProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_InitDb_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitDb" />
+  </wsdl:message>
+  <wsdl:message name="IMESService_InitDb_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitDbResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMESService">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/GetData" message="tns:IMESService_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/GetDataResponse" message="tns:IMESService_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/GetDataUsingDataContract" message="tns:IMESService_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/GetDataUsingDataContractResponse" message="tns:IMESService_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/GetDiff" message="tns:IMESService_GetDiff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/GetDiffResponse" message="tns:IMESService_GetDiff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/GetDepartments" message="tns:IMESService_GetDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/GetDepartmentsResponse" message="tns:IMESService_GetDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentAvailability">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/GetDepartmentAvailability" message="tns:IMESService_GetDepartmentAvailability_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/GetDepartmentAvailabilityResponse" message="tns:IMESService_GetDepartmentAvailability_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/GetProducts" message="tns:IMESService_GetProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/GetProductsResponse" message="tns:IMESService_GetProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/GetTeams" message="tns:IMESService_GetTeams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/GetTeamsResponse" message="tns:IMESService_GetTeams_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/AddProduct" message="tns:IMESService_AddProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/AddProductResponse" message="tns:IMESService_AddProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/DeleteProduct" message="tns:IMESService_DeleteProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/DeleteProductResponse" message="tns:IMESService_DeleteProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/DeleteProducts" message="tns:IMESService_DeleteProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/DeleteProductsResponse" message="tns:IMESService_DeleteProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TakeProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/TakeProduct" message="tns:IMESService_TakeProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/TakeProductResponse" message="tns:IMESService_TakeProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TakeProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/TakeProducts" message="tns:IMESService_TakeProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/TakeProductsResponse" message="tns:IMESService_TakeProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInputMovements">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/GetInputMovements" message="tns:IMESService_GetInputMovements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/GetInputMovementsResponse" message="tns:IMESService_GetInputMovements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutputMovements">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/GetOutputMovements" message="tns:IMESService_GetOutputMovements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/GetOutputMovementsResponse" message="tns:IMESService_GetOutputMovements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GiveProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/GiveProduct" message="tns:IMESService_GiveProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/GiveProductResponse" message="tns:IMESService_GiveProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitDb">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMESService/InitDb" message="tns:IMESService_InitDb_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMESService/InitDbResponse" message="tns:IMESService_InitDb_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMESService" type="tns:IMESService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IMESService/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IMESService/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiff">
+      <soap:operation soapAction="http://tempuri.org/IMESService/GetDiff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartments">
+      <soap:operation soapAction="http://tempuri.org/IMESService/GetDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentAvailability">
+      <soap:operation soapAction="http://tempuri.org/IMESService/GetDepartmentAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <soap:operation soapAction="http://tempuri.org/IMESService/GetProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <soap:operation soapAction="http://tempuri.org/IMESService/GetTeams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <soap:operation soapAction="http://tempuri.org/IMESService/AddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap:operation soapAction="http://tempuri.org/IMESService/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProducts">
+      <soap:operation soapAction="http://tempuri.org/IMESService/DeleteProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeProduct">
+      <soap:operation soapAction="http://tempuri.org/IMESService/TakeProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeProducts">
+      <soap:operation soapAction="http://tempuri.org/IMESService/TakeProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInputMovements">
+      <soap:operation soapAction="http://tempuri.org/IMESService/GetInputMovements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutputMovements">
+      <soap:operation soapAction="http://tempuri.org/IMESService/GetOutputMovements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GiveProduct">
+      <soap:operation soapAction="http://tempuri.org/IMESService/GiveProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitDb">
+      <soap:operation soapAction="http://tempuri.org/IMESService/InitDb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MESService">
+    <wsdl:port name="BasicHttpBinding_IMESService" binding="tns:BasicHttpBinding_IMESService">
+      <soap:address location="http://mes-server.somee.com/MESService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
